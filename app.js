@@ -270,7 +270,7 @@ if (diainiciado === "1" || diainiciado === "01") {
 //acusado
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(15);
-    pdf.text(("ACUSADO/A:")+(". "), 56, 543);
+    pdf.text(("ACUSADO/A:")+(". a"), 56, 543);
     pdf.line(56, 546, 152, 546); // (x1, y1, x2, y2)
     pdf.setFont("Arial", "");
     pdf.setFont("Arial");
