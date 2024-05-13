@@ -270,7 +270,7 @@ if (diainiciado === "1" || diainiciado === "01") {
 //acusado
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(15);
-    pdf.text("ACUSADO/A:", 56, 543);
+    pdf.text(("ACUSADO/A:")+(". "), 56, 543);
     pdf.line(56, 546, 152, 546); // (x1, y1, x2, y2)
     pdf.setFont("Arial", "");
     pdf.setFont("Arial");
@@ -424,50 +424,6 @@ var lineHeight = 15; // ajusta este valor según tu diseño
 var x = 86; // ajusta esta coordenada según tu diseño
 var y = 163; // ajusta esta coordenada según tu diseño
 justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
-
-////0000000000000000000000000000000000000000000
-////000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-
-function justificarParrafoConPosicion(pdf, texto, limite, x, y) {
-    const palabras = texto.split(" ");
-    let linea = palabras[0];
-    const lineas = [];
-
-    for (let i = 1; i < palabras.length; i++) {
-        const palabra = palabras[i];
-        if (linea.length + palabra.length + 1 <= limite) {
-            linea += " " + palabra;
-        } else {
-            lineas.push(linea);
-            linea = palabra;
-        }
-    }
-
-    lineas.push(linea);
-
-    // Ajustar espacios entre palabras para que quede bien cuadrado
-    for (let i = 0; i < lineas.length; i++) {
-        const espacioTotal = limite - lineas[i].length;
-        const espacios = lineas[i].split(" ").length - 1;
-
-        if (espacios === 0) continue; // Evitar dividir por cero
-
-        const espacioPorPalabra = Math.ceil(espacioTotal / espacios);
-        lineas[i] = lineas[i].replace(/ /g, match => " ".repeat(espacioPorPalabra) + (match.length > 1 ? " " : ""));
-    }
-
-    // Imprimir el párrafo justificado con posición (x, y)
-    for (let i = 0; i < lineas.length; i++) {
-        return(`(${x}, ${y - i * 15}): ${lineas[i]}`); // Ajusta el interlineado según sea necesario
-    }
-}
-
-// Ejemplo de uso:
-var texto = (acusado+("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
-const limite = 39;
-var x = 10; // Coordenada x
-var y = 10; // Coordenada y
-justificarParrafoConPosicion(pdf, texto, limite, x, y);
 
 //HOJA 3 ELEVACION------------------------------------------------------------------------------------------
 
