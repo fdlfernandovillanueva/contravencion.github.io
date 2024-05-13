@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3 class="font-weight-bold">Contravencional</h3>
+                <hr>
+                <form id="form">
+                    <div class="mb-3">
+                        <label for="dependencia" class="form-label"><b>Dependencia a cargo:</b></label>
+                        <select class="form-select" id="dependencia">
+                            <option value="">Seleccione una dependencia</option>
+                            <option value="   CRIA Nº 4 – VILLA MITRE (DUR-1)">CRIA Nº 4 – VILLA MITRE (DUR-1)</option>
+                            <option value="SUB CRIA – B° AUTODROMO (DUR-1)">SUB CRIA – B° AUTODROMO (DUR-1)</option>
+                        </select>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="acta" class="form-label"><b>Acta/Denuncia Contrav. N°:</b></label>
+                            <input type="number" class="form-control" id="acta">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="diainiciado" class="form-label"><b>Dia Iniciado:</b></label>
+                            <input type="number" class="form-control" id="diainiciado">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="mesiniciado" class="form-label"><b>Mes Iniciado:</b></label>
+                            <input type="number" class="form-control" id="mesiniciado">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="art" class="form-label"><b>Articulo N°:</b></label>
+                            <input type="text" class="form-control" id="art">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="hora" class="form-label"><b>Hora (Ej: 07:00):</b></label>
+                            <input type="text" class="form-control" id="hora">
+                        </div>
+                        <div class="col-md-8">
+                            <label for="lugar" class="form-label"><b>Lugar del Hecho:</b></label>
+                            <input type="text" class="form-control" id="lugar">
+                        </div>    
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="denunciante" class="form-label"><b>Denunciante (MAYUSCULA):</b></label>
+                            <input type="text" class="form-control" id="denunciante">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="damnificado" class="form-label"><b>Damnificado:</b></label>
+                            <select class="form-select" id="damnificado">
+                                <option value="">Seleccione una opcion</option>
+                                <option value="ORDEN PUBLICO">ORDEN PUBLICO</option>
+                                <option value="ORDEN PUBLICO">SERVICIO PUBLICO</option>
+                                <option value="LA MISMA">LA MISMA</option>
+                                <option value="EL MISMO">EL MISMO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="damnificado2" class="form-label"><b>Damnificado (en caso que NO sea el denunciante) (no llenar los 2 cuadros de damnificado):</b></label>
+                        <input type="text" class="form-control" id="damnificado2">
+                    </div>    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="acusado" class="form-label"><b>Acusado (MAYUSCULA):</b></label>
+                            <input type="text" class="form-control" id="acusado">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="instructor" class="form-label"><b>Instructor:</b></label>
+                            <select class="form-select" id="instructor">
+                                <option value="">Seleccione una opcion</option>
+                                <option value="CABO FLORENCIA VILTE">FLORENCIA VILTE</option>
+                                <option value="CABO ANGELA RODRIGUEZ">ANGELA RODRIGUEZ</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row mb-3">
+                        <button type="submit" class="btn btn-primary mb-4"><b>Generar PDF</b></button>
+                    </div>
+
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
