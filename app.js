@@ -273,7 +273,7 @@ if (diainiciado === "1" || diainiciado === "01") {
     }
     
     // Ejemplo de uso:
-    var texto = ((".      .        .     .         .      .       ")+lugarhecho.toUpperCase()+(" (VÍA PÚBLICA)"));
+    var texto = ((".      .       .      .         .      .       .      ")+lugarhecho.toUpperCase()+(" (VÍA PÚBLICA)"));
     var anchoMaximo = 38; // ajusta este valor según tu diseño
     var lineHeight = 20; // ajusta este valor según tu diseño
     var x = 56; // ajusta esta coordenada según tu diseño
