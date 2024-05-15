@@ -247,7 +247,38 @@ if (diainiciado === "1" || diainiciado === "01") {
     pdf.setFont("Arial", "");
     pdf.setFont("Arial");
     pdf.setFontSize(13);
-    pdf.text(lugarhecho.toUpperCase()+(" (VÍA PÚBLICA)"), 214, 393);
+    function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
+        var palabras = texto.split(' ');
+        var linea = '';
+        
+        palabras.forEach(function(palabra, indice) {
+            var medida = pdf.getStringUnitWidth(palabra) * pdf.internal.getFontSize();
+            
+            if (pdf.getStringUnitWidth(linea + palabra) > anchoMaximo || indice === palabras.length - 1) {
+                var espaciosRestantes = anchoMaximo - pdf.getStringUnitWidth(linea.trim());
+                var espaciosTotales = indice < palabras.length - 1 ? Math.floor(espaciosRestantes / (linea.trim().split(" ").length - 1)) : 0;
+                var espaciosEntrePalabras = indice < palabras.length - 1 ? espaciosRestantes / Math.max(2, linea.trim().split(" ").length - 1) : 0;
+                
+                var lineaJustificada = linea.trim().split(" ").map(function(palabra, indice, arreglo) {
+                    return palabra + (indice < arreglo.length - 1 ? ' '.repeat(espaciosEntrePalabras) : '');
+                }).join(' ');
+                
+                pdf.text(lineaJustificada, x, y, { align: 'justify' });
+                y += lineHeight;
+                linea = '';
+            }
+            
+            linea += palabra + ' ';
+        });
+    }
+    
+    // Ejemplo de uso:
+    var texto = ((".      .        .       .       .      .")+lugarhecho.toUpperCase()+(" (VÍA PÚBLICA)"));
+    var anchoMaximo = 38; // ajusta este valor según tu diseño
+    var lineHeight = 20; // ajusta este valor según tu diseño
+    var x = 56; // ajusta esta coordenada según tu diseño
+    var y = 393; // ajusta esta coordenada según tu diseño
+    justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
 //denunciante
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(15);
