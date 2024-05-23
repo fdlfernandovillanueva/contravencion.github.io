@@ -470,7 +470,7 @@ justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
     pdf.setFontSize(12);
     pdf.text(("SECTOR N° 7 (DUR-1)"), 84, 85);
     pdf.setLineWidth(1,4);
-    pdf.line (84, 88, 209, 88);
+    pdf.line (84, 88, 208, 88);
 //Espacio en blanco
     pdf.setTextColor(255);
     pdf.text(("I"), 212, 85);
