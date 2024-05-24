@@ -450,7 +450,7 @@ function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
 
 // Ejemplo de uso:
 var texto = (("contra de ")+(acusado.toUpperCase())+(", los cuales constan de Formularios A, B y tomas fotográficas. Es todo cuanto se hace constar. a"));
-var anchoMaximo = 39    ; // ajusta este valor según tu diseño
+var anchoMaximo = 39; // ajusta este valor según tu diseño
 var lineHeight = 15; // ajusta este valor según tu diseño
 var x = 86; // ajusta esta coordenada según tu diseño
 var y = 163; // ajusta esta coordenada según tu diseño
@@ -470,10 +470,11 @@ justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
     pdf.setFontSize(12);
     pdf.text(("SECTOR N° 7 (DUR-1)"), 84, 85);
     pdf.setLineWidth(1,4);
-    pdf.line (84, 88, 208, 88);
+    pdf.line (84, 88, 205, 88);
 //Espacio en blanco
     pdf.setTextColor(255);
     pdf.text(("I"), 212, 85);
+    pdf.text(("I"), 400, 85);
 //fecha
     pdf.setTextColor(0);
     pdf.setFont("Arial", "");
