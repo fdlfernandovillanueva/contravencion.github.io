@@ -499,7 +499,7 @@ justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
     pdf.line (84, 88, 205, 88);
 //Espacio en blanco
     pdf.setTextColor(255);
-    pdf.text(("I       I          I         I           I         I        I      I"), 212, 85);
+    pdf.text(("I         I          I          I           I         I  "), 212, 85);
     pdf.text(("I"), 400, 85);
 //fecha
     pdf.setTextColor(0);
