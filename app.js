@@ -415,14 +415,7 @@ pdf.text(("del  año  2024,"), 481, 118);
 pdf.text(("se   deja    debidamente    documentado   al"), 86, 133);
 pdf.text(("diligenciamiento    de    la    presente    Acta"), 328, 133);
 //3ra oracion..............................
-pdf.text(("Contravencional por Infracción al Art.  "), 86, 148);
-if (articulo >= 100) {
-pdf.text(articulo, 286, 148);
-} else {
-    pdf.text(articulo, 290, 148);
-}
-pdf.text((" de  la  Ley  Provincial  N° 7135/01  seguida  en"), 307, 148);
-//4ta oracion..............................
+if (String(articulo).includes("103") || String(articulo).includes("54")) {
 function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
     var palabras = texto.split(' ');
     var linea = '';
@@ -449,12 +442,45 @@ function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
 }
 
 // Ejemplo de uso:
-var texto = (("contra de ")+(acusado.toUpperCase())+(", los cuales constan de Formularios A, B y tomas fotográficas. Es todo cuanto se hace constar. a"));
+var texto = (("Contravencional por Infracción al Art. ")+articulo+(" de la Ley Provincial N° 7135/01 seguida en contra de ")+(acusado.toUpperCase())+(", los cuales constan de Formularios A, B, Acta de Consulta Judicial y tomas fotográficas. Es todo cuanto se hace constar. a"));
 var anchoMaximo = 39; // ajusta este valor según tu diseño
 var lineHeight = 15; // ajusta este valor según tu diseño
 var x = 86; // ajusta esta coordenada según tu diseño
-var y = 163; // ajusta esta coordenada según tu diseño
+var y = 148; // ajusta esta coordenada según tu diseño
 justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
+} else {
+    function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
+        var palabras = texto.split(' ');
+        var linea = '';
+        
+        palabras.forEach(function(palabra, indice) {
+            var medida = pdf.getStringUnitWidth(palabra) * pdf.internal.getFontSize();
+            
+            if (pdf.getStringUnitWidth(linea + palabra) > anchoMaximo || indice === palabras.length - 1) {
+                var espaciosRestantes = anchoMaximo - pdf.getStringUnitWidth(linea.trim());
+                var espaciosTotales = indice < palabras.length - 1 ? Math.floor(espaciosRestantes / (linea.trim().split(" ").length - 1)) : 0;
+                var espaciosEntrePalabras = indice < palabras.length - 1 ? espaciosRestantes / Math.max(2, linea.trim().split(" ").length - 1) : 0;
+                
+                var lineaJustificada = linea.trim().split(" ").map(function(palabra, indice, arreglo) {
+                    return palabra + (indice < arreglo.length - 1 ? ' '.repeat(espaciosEntrePalabras) : '');
+                }).join(' ');
+                
+                pdf.text(lineaJustificada, x, y, { align: 'justify' });
+                y += lineHeight;
+                linea = '';
+            }
+            
+            linea += palabra + ' ';
+        });
+    }
+    
+    // Ejemplo de uso:
+    var texto = (("Contravencional por Infracción al Art. ")+articulo+(" de la Ley Provincial N° 7135/01 seguida en contra de ")+(acusado.toUpperCase())+(", los cuales constan de Formularios A, B y tomas fotográficas. Es todo cuanto se hace constar. a"));
+    var anchoMaximo = 39; // ajusta este valor según tu diseño
+    var lineHeight = 15; // ajusta este valor según tu diseño
+    var x = 86; // ajusta esta coordenada según tu diseño
+    var y = 148; // ajusta esta coordenada según tu diseño
+    justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);}
 
 //HOJA 3 ELEVACION------------------------------------------------------------------------------------------
 
@@ -611,22 +637,6 @@ if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
     pdf.setFontSize(12);
     pdf.text(("correspondiente" ), 480, 130);
 //2da oracion........................................................
-//denunciante
-    pdf.setFont("Arial", "");
-    pdf.setFont("Arial");   
-    pdf.setFontSize(12);
-    pdf.text(("al registro de esta División por S/Inf. Art."), 84, 145);
-    if (articulo >= 100) {
-        pdf.text(articulo, 301, 145);
-    } else {
-        pdf.text(articulo, 305, 145);
-    }
-    if (articulo === "45" || articulo === "58" || articulo === "66") {
-        pdf.text(("de la Ley Provincial N° 7.135 en perjuicio de"), 327, 145);
-    } else {
-        pdf.text(("de la Ley Provincial N° 7.135 en perjuicio del"), 325, 145);
-    }
-//3ra oracion........................................................
     if (articulo === "45" || articulo === "58" || articulo === "66") {
             function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
                var palabras = texto.split(' ');
@@ -654,63 +664,49 @@ if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
            }
            
            // Ejemplo de uso:
-           var texto = ((denunciante.toUpperCase())+(", seguida en contra de ")+(acusado.toUpperCase())+(", por hecho ocurrido en esta ciudad y en merito a su contenido, ELEVESE a la UNIDAD FISCAL CONTRAVENCIONAL, a los fines pertinentes. Consta de (      ) fojas.- a"));
+           var texto = (("correspondiente al registro de esta División por S/Inf. Art. ")+articulo+(" de la Ley Provincial N° 7.135 en perjuicio de ")+denunciante.toUpperCase()+(", seguida en contra de ")+(acusado.toUpperCase())+(", por hecho ocurrido en esta ciudad y en merito a su contenido, ELÉVESE a la UNIDAD FISCAL CONTRAVENCIONAL, a los fines pertinentes. Consta de (      ) fojas. a"));
            var anchoMaximo = 39; // ajusta este valor según tu diseño
            var lineHeight = 15; // ajusta este valor según tu diseño
-           var x = 84; // ajusta esta coordenada según tu diseño
-           var y = 160; // ajusta esta coordenada según tu diseño
+           var x = 86; // ajusta esta coordenada según tu diseño
+           var y = 145; // ajusta esta coordenada según tu diseño
            justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
-           
            
            } else {
             function justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight) {
-               var palabras = texto.split(' ');
-               var linea = '';
-               
-               palabras.forEach(function(palabra, indice) {
-                   var medida = pdf.getStringUnitWidth(palabra) * pdf.internal.getFontSize();
-                   
-                   if (pdf.getStringUnitWidth(linea + palabra) > anchoMaximo || indice === palabras.length - 1) {
-                       var espaciosRestantes = anchoMaximo - pdf.getStringUnitWidth(linea.trim());
-                       var espaciosTotales = indice < palabras.length - 1 ? Math.floor(espaciosRestantes / (linea.trim().split(" ").length - 1)) : 0;
-                       var espaciosEntrePalabras = indice < palabras.length - 1 ? espaciosRestantes / Math.max(2, linea.trim().split(" ").length - 1) : 0;
-                       
-                       var lineaJustificada = linea.trim().split(" ").map(function(palabra, indice, arreglo) {
-                           return palabra + (indice < arreglo.length - 1 ? ' '.repeat(espaciosEntrePalabras) : '');
-                       }).join(' ');
-                       
-                       pdf.text(lineaJustificada, x, y, { align: 'justify' });
-                       y += lineHeight;
-                       linea = '';
-                   }
-                   
-                   linea += palabra + ' ';
-               });
-           }
-           
-           // Ejemplo de uso:
-           var texto = (("Orden Publico, seguida en contra de ")+(acusado.toUpperCase())+(", por hecho ocurrido en esta ciudad y en merito a su contenido, ELEVESE a la UNIDAD FISCAL CONTRAVENCIONAL, a los fines pertinentes. Consta de (      ) fojas.- a"));
-           var anchoMaximo = 39; // ajusta este valor según tu diseño
-           var lineHeight = 15; // ajusta este valor según tu diseño
-           var x = 84; // ajusta esta coordenada según tu diseño
-           var y = 160; // ajusta esta coordenada según tu diseño
-           justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
+                var palabras = texto.split(' ');
+                var linea = '';
+            
+                palabras.forEach(function(palabra, indice) {
+                    var medida = pdf.getStringUnitWidth(palabra) * pdf.internal.getFontSize();
+            
+                    if (pdf.getStringUnitWidth(linea + palabra) > anchoMaximo || indice === palabras.length - 1) {
+                        var espaciosRestantes = anchoMaximo - pdf.getStringUnitWidth(linea.trim());
+                        var espaciosTotales = indice < palabras.length - 1 ? Math.floor(espaciosRestantes / (linea.trim().split(" ").length - 1)) : 0;
+                        var espaciosEntrePalabras = indice < palabras.length - 1 ? espaciosRestantes / Math.max(2, linea.trim().split(" ").length - 1) : 0;
+            
+                        var lineaJustificada = linea.trim().split(" ").map(function(palabra, indice, arreglo) {
+                            return palabra + (indice < arreglo.length - 1 ? ' '.repeat(espaciosEntrePalabras) : '');
+                        }).join(' ');
+            
+                        pdf.text(lineaJustificada, x, y, { align: 'justify' });
+                        y += lineHeight;
+                        linea = '';
+                    }
+            
+                    linea += palabra + ' ';
+                });
+            }
+            
+            // Ejemplo de uso:
+            var texto = ((" correspondiente al registro de esta División por S/Inf. Art. ") + articulo + (" de la Ley Provincial N° 7.135 en perjuicio del Orden Publico, seguida en contra de ") + (acusado.toUpperCase()) + (", por hecho ocurrido en esta ciudad y en merito a su contenido, ELÉVESE a la UNIDAD FISCAL CONTRAVENCIONAL, a los fines pertinentes. Consta de (      ) fojas. a"));
+            var anchoMaximo = 39; // ajusta este valor según tu diseño
+            var lineHeight = 15; // ajusta este valor según tu diseño
+            var x = 86; // ajusta esta coordenada según tu diseño
+            var y = 145; // ajusta esta coordenada según tu diseño
+            
+            justificarTexto(pdf, texto, x, y, anchoMaximo, lineHeight);
 
            } 
-    
-        /*pdf.setLineWidth(1);
-        pdf.rect (84, 251, 34, 58);
-        pdf.text (("S-7"), 91, 263);
-        pdf.line (84, 266, 118, 266);
-        pdf.text (("DSC"), 88, 278);
-        pdf.line (84, 281, 118, 281);
-        pdf.text (("AVF"), 89, 292);
-        pdf.line (84, 295, 118, 295);
-        if (instructor === "CABO ANGELA RODRIGUEZ") {
-            pdf.text (("AR"), 89, 306);
-        } else {
-            pdf.text (("FVV"), 89, 306);
-        }*/
 
     pdf.save(("Acta N° ")+numacta);
 }
