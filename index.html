@@ -11,7 +11,8 @@
     <script src="jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <script src="app.js"></script>
-    <link rel="icon" href="icono.ico">
+    <link rel="stylesheet" href="tipoletra.css">
+    <link rel="icon" href="./icono.ico">
 </head>
 
 <body>
@@ -67,32 +68,116 @@
                             <label for="damnificado" class="form-label"><b>Damnificado:</b></label>
                             <select class="form-select" id="damnificado">
                                 <option value="">Seleccione una opcion</option>
-                                <option value="ORDEN PUBLICO">ORDEN PUBLICO</option>
-                                <option value="ORDEN PUBLICO">SERVICIO PUBLICO</option>
+                                <option value="ORDEN PÚBLICO">ORDEN PUBLICO</option>
+                                <option value="SERVICIO PÚBLICO">SERVICIO PUBLICO</option>
                                 <option value="LA MISMA">LA MISMA</option>
                                 <option value="EL MISMO">EL MISMO</option>
                             </select>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="damnificado2" class="form-label"><b>Damnificado (en caso que NO sea el denunciante) (no llenar los 2 cuadros de damnificado):</b></label>
+                    <!-- <div class="mb-3">
+                        <label for="damnificado2" class="form-label"><b>Damnificado (diferente al denunciante):</b></label>
                         <input type="text" class="form-control" id="damnificado2">
-                    </div>    
+                    </div>   --> 
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="acusado" class="form-label"><b>Acusado (MAYUSCULA):</b></label>
                             <input type="text" class="form-control" id="acusado">
                         </div>
                         <div class="col-md-6">
+                            <label for="damnificado2" class="form-label"><b>Damnificado (diferente al denunciante):</b></label>
+                            <input type="text" class="form-control" id="damnificado2">
+                        </div>
+                        <!-- <div class="col-md-6">
                             <label for="instructor" class="form-label"><b>Instructor:</b></label>
                             <select class="form-select" id="instructor">
                                 <option value="">Seleccione una opcion</option>
                                 <option value="CABO FLORENCIA VILTE">FLORENCIA VILTE</option>
                                 <option value="CABO ANGELA RODRIGUEZ">ANGELA RODRIGUEZ</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                     
+                    <div>
+                        <button type="button" onclick="mostrarOpciones()">CONSULTA JUDICIAL</button>
+                        <br>
+                        <br>
+                    </div>
+                <div id="opcionesAdicionales" class="hidden">
+                    <div class="centro">
+                        <p><b>CONSULTA JUDICIAL</b></p> 
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label for="diaconsulta" class="form-label"><b>Dia Cons.:</b></label>
+                            <input type="number" class="form-control" id="diaconsulta">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="mesconsulta" class="form-label"><b>Mes Cons.:</b></label>
+                            <input type="number" class="form-control" id="mesconsulta">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="hs" class="form-label"><b>Hora Cons.:</b></label>
+                            <input type="text" class="form-control" id="hs">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="consulta" class="form-label"><b>Consulta a Dr/a.:</b></label>
+                            <input type="text" class="form-control" id="consulta">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="druficon" class="form-label"><b>Dr/a UFICON:</b></label>
+                            <select class="form-select" id="druficon">
+                                <option value="">Seleccione una opcion</option>
+                                <option value="MARCOS BRAVO">MARCOS BRAVO</option>
+                                <option value="DANIELA ZULETA">DANIELA ZULETA</option>
+                                <option value="HERNAN BLANQUEZ">HERNAN BLANQUEZ</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="decomiso" class="form-label"><b>Decomiso:</b></label>
+                            <input type="text" class="form-control" id="decomiso">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="testigoacto1" class="form-label"><b>Testigo de acto 1:</b></label>
+                            <select class="form-select" id="testigoacto1">
+                                <option value="">Seleccione una opcion</option>
+                                <option value="Marcelo Martínez">Marcelo Martinez</option>
+                                <option value="Mariana Carranza">Mariana Carranza</option>
+                                <option value="Ignacio Osores">Ignacio Osores</option>
+                                <option value="Karen López">Karen Lopez</option>
+                                <option value="Angela Rodriguez">Angela Rodriguez</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="testigoacto2" class="form-label"><b>Testigo de acto 2:</b></label>
+                            <select class="form-select" id="testigoacto2">
+                                <option value="">Seleccione una opcion</option>
+                                <option value="Karen López">Karen Lopez</option>
+                                <option value="Ignacio Osores">Ignacio Osores</option>
+                                <option value="Mariana Carranza">Mariana Carranza</option>
+                                <option value="Angela Rodriguez">Angela Rodriguez</option>
+                                <option value="Marcelo Martínez">Marcelo Martinez</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>    
+
+                <script>
+                    function mostrarOpciones() {
+                        var opciones = document.getElementById("opcionesAdicionales");
+                        if (opciones.classList.contains("hidden")) {
+                            opciones.classList.remove("hidden");
+                            opciones.classList.add("visible");
+                        } else {
+                            opciones.classList.remove("visible");
+                            opciones.classList.add("hidden");
+                        }
+                    }
+                </script>
                     
                     <div class="row mb-3">
                         <button type="submit" class="btn btn-primary mb-4"><b>Generar PDF</b></button>
