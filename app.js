@@ -354,7 +354,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.setFontSize(15);
     pdf.text("INSTRUCTOR DE SUMARIO:", 56, 643);
     pdf.line(56, 646, 258, 646); // (x1, y1, x2, y2)
-    pdf.setFont("Arial", "mormal");
+    pdf.setFont("Arial", "normal");
     pdf.setFontSize(13);
     pdf.text(("CABO FLORENCIA VILTE"),268, 643);
 
