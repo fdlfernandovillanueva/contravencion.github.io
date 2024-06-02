@@ -1,4 +1,12 @@
-  
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+.centro {
+    text-align: center;
+}  
 #botonCentro {
     text-align: center;
     margin: auto;
