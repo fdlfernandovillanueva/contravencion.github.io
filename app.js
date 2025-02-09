@@ -69,16 +69,16 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         pdf.text("/24", 480, 78);
     }if (numacta >= 1000) {
         pdf.setFontSize(24,95);
-        pdf.text(("ACTA CONTRAVENCIONAL ")+numacta+("/24"), 99, 78);
+        pdf.text(("ACTA CONTRAVENCIONAL ")+numacta+("/25"), 99, 78);
     }else {
         pdf.setFontSize(25);
-        pdf.text(("ACTA CONTRAVENCIONAL ")+numacta+("/24"), 96, 78);
+        pdf.text(("ACTA CONTRAVENCIONAL ")+numacta+("/25"), 96, 78);
     }
     pdf.setLineWidth(2);
     pdf.line(95, 81, 510, 81); // (x1, y1, x2, y2)
 //dependencia acargo
     if (dependencia === "") {
-        pdf.text("CRIA Nº 4 – VILLA MITRE (DUR-1)", 103, 117);
+        pdf.text("CRIA Nº 4 – VILLA MITRE (DDP-1)", 103, 117);
     }else {
         pdf.text(dependencia, 80, 117);
     }
@@ -123,25 +123,25 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     }
 // mes iniciado titulo
     if (mesiniciado === "1" || mesiniciado === "01") {
-        pdf.text(("01/24"), 103, 190);
+        pdf.text(("01/25"), 103, 190);
     }if (mesiniciado === "2" || mesiniciado === "02") {
-        pdf.text(("02/24"), 103, 190);
+        pdf.text(("02/25"), 103, 190);
     } if (mesiniciado === "3" || mesiniciado === "03") {
-        pdf.text(("03/24"), 103, 190);
+        pdf.text(("03/25"), 103, 190);
     } if (mesiniciado === "4" || mesiniciado === "04") {
-        pdf.text(("04/24"), 103, 190);
+        pdf.text(("04/25"), 103, 190);
     } if (mesiniciado === "5" || mesiniciado === "05") {
-        pdf.text(("05/24"), 103, 190);
+        pdf.text(("05/25"), 103, 190);
     } if (mesiniciado === "6" || mesiniciado === "06") {
-        pdf.text(("06/24"), 103, 190);
+        pdf.text(("06/25"), 103, 190);
     } if (mesiniciado === "7" || mesiniciado === "07") {
-        pdf.text(("07/24"), 103, 190);
+        pdf.text(("07/25"), 103, 190);
     } if (mesiniciado === "8" || mesiniciado === "08") {
-        pdf.text(("08/24"), 103, 190);
+        pdf.text(("08/25"), 103, 190);
     } if (mesiniciado === "9" || mesiniciado === "09") {
-        pdf.text(("09/24"), 103, 190);
+        pdf.text(("09/25"), 103, 190);
     } if (mesiniciado >= 10 && mesiniciado <= 12) {
-        pdf.text(mesiniciado+("/24"), 103, 190);
+        pdf.text(mesiniciado+("/25"), 103, 190);
     } if (mesiniciado==="") {
         pdf.text("/", 133, 190);
     }
@@ -156,9 +156,9 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
 //mes elevado
     var mes = (date.getUTCMonth() + 1).toString();
     if (mes >= 1 && mes <= 9) {  
-        pdf.text("0" + mes + "/24", 456, 190);
+        pdf.text("0" + mes + "/25", 456, 190);
     }if (mes >= 10 && mes <= 12) {
-        pdf.text(mes + "/24", 456, 190);
+        pdf.text(mes + "/25", 456, 190);
     }
 //dependencia instructora
     pdf.setFontSize(15);
@@ -168,7 +168,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.setFont("Arial", "normal");
     pdf.setFontSize(13);
     pdf.text(("División Sumarios Contravencionales -"), 292, 243);
-    pdf.text(("Sector 7 (DUR-1)"), 292, 263);
+    pdf.text(("Sector 7 (DDP-1)"), 292, 263);
 //articulo
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(15);
@@ -209,29 +209,29 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     }
 //mes iniciado
     if (mesiniciado==="01" || mesiniciado==="1") {  
-        pdf.text("enero de 2.024", 157, 343.1);
+        pdf.text("enero de 2.025", 157, 343.1);
     } if (mesiniciado==="02" || mesiniciado==="2") {  
-        pdf.text("febrero de 2.024", 157, 343.1);
+        pdf.text("febrero de 2.025", 157, 343.1);
     } if (mesiniciado==="03" || mesiniciado==="3") {  
-        pdf.text("marzo de 2.024", 157, 343.1);
+        pdf.text("marzo de 2.025", 157, 343.1);
     } if (mesiniciado==="04" || mesiniciado==="4") {  
-        pdf.text("abril de 2.024", 157, 343.1);
+        pdf.text("abril de 2.025", 157, 343.1);
     } if (mesiniciado==="05" || mesiniciado==="5") {  
-        pdf.text("mayo de 2.024", 157, 343.1);
+        pdf.text("mayo de 2.025", 157, 343.1);
     } if (mesiniciado==="06" || mesiniciado==="6") {  
-        pdf.text("junio de 2.024", 157, 343.1);
+        pdf.text("junio de 2.025", 157, 343.1);
     } if (mesiniciado==="07" || mesiniciado==="7") {  
-        pdf.text("julio de 2.024", 157, 343.1);
+        pdf.text("julio de 2.025", 157, 343.1);
     } if (mesiniciado==="08" || mesiniciado==="8") {  
-        pdf.text("agosto de 2.024", 157, 343.1);
+        pdf.text("agosto de 2.025", 157, 343.1);
     } if (mesiniciado==="09" || mesiniciado==="9") {  
-        pdf.text("septiembre de 2.024", 157, 343.1);
+        pdf.text("septiembre de 2.025", 157, 343.1);
     } if (mesiniciado==="10") {  
-        pdf.text("octubre de 2.024", 157, 343.1);
+        pdf.text("octubre de 2.025", 157, 343.1);
     } if (mesiniciado==="11") { 
-        pdf.text("noviembre de 2.024", 157, 343.1);
+        pdf.text("noviembre de 2.025", 157, 343.1);
     } if (mesiniciado==="12") { 
-        pdf.text("diciembre de 2.024", 157, 343.1);
+        pdf.text("diciembre de 2.025", 157, 343.1);
     } else {
         pdf.text("", 157, 343.1);
     }
@@ -366,7 +366,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
 //año
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(32);
-    pdf.text("AÑO 2.024", 230, 715);
+    pdf.text("AÑO 2.025", 230, 715);
 //HOJA 2 CONSTANCIA DE INSTRUCCION-------------------------------------------------------------------------------
 
     pdf.addPage();
@@ -379,7 +379,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.setFont("Arial", "normal");
     pdf.setFontSize(12);
     if ((date.getUTCMonth() + 1).toString() === "1") {  
-        pdf.text(("enero  del  año  2024,"), 443, 118);
+        pdf.text(("enero  del  año  2025,"), 443, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -390,7 +390,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "2") {  
-        pdf.text(("febrero del  año  2024,"), 441, 118);
+        pdf.text(("febrero del  año  2025,"), 441, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -401,7 +401,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "3") {  
-        pdf.text(("marzo  del  año  2024,"), 443, 118);
+        pdf.text(("marzo  del  año  2025,"), 443, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -412,7 +412,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "4") {  
-        pdf.text(("abril  del  año  2024,"), 443, 118);
+        pdf.text(("abril  del  año  2025,"), 443, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -423,7 +423,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "5") {  
-        pdf.text(("mayo  del  año  2024,"), 445, 118);
+        pdf.text(("mayo  del  año  2025,"), 445, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -434,7 +434,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "6") {  
-        pdf.text(("junio  del  año  2024,"), 445, 118);
+        pdf.text(("junio  del  año  2025,"), 445, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -445,7 +445,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "7") {  
-        pdf.text(("julio  del  año  2024,"), 445, 118);
+        pdf.text(("julio  del  año  2025,"), 445, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -456,7 +456,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "8") {  
-        pdf.text(("agosto del año 2024,"), 442, 118);
+        pdf.text(("agosto del año 2025,"), 442, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -467,7 +467,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "9") {  
-        pdf.text(("septiembre del año 2024,"), 421, 118);
+        pdf.text(("septiembre del año 2025,"), 421, 118);
         pdf.text(("____: En la Ciudad de Salta Capital, a los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -478,7 +478,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días del mes de"), 331, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "10") {  
-        pdf.text(("octubre del año 2024,"), 442, 118);
+        pdf.text(("octubre del año 2025,"), 442, 118);
         pdf.text(("____: En la  Ciudad de  Salta  Capital,  a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -489,7 +489,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días  del  mes de"), 345, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "11") {  
-        pdf.text(("noviembre del año 2024,"), 425, 118);
+        pdf.text(("noviembre del año 2025,"), 425, 118);
         pdf.text(("____: En la Ciudad de Salta Capital, a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -500,7 +500,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.text(("días del mes de"), 335, 118);
 
     }if ((date.getUTCMonth() + 1).toString() === "12") {  
-        pdf.text(("diciembre del año 2024,"), 425, 118);
+        pdf.text(("diciembre del año 2025,"), 425, 118);
         pdf.text(("____: En la Ciudad de Salta Capital, a  los"), 86, 118);
     var dia = date.getUTCDate().toString();
     if (dia >= 1 && dia <= 9) {  
@@ -590,7 +590,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
 //SECTOR
     pdf.setFont("Arial", "bold");
     pdf.setFontSize(12);
-    pdf.text(("SECTOR N° 7 (DUR-1)"), 84, 85);
+    pdf.text(("SECTOR N° 7 (DDP-1)"), 84, 85);
     pdf.setLineWidth(1,4);
     pdf.line (84, 88, 205, 88);
 //Espacio en blanco
@@ -605,7 +605,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
 // dia mes año
     if ((date.getUTCMonth() + 1).toString()==="1") {  //listo
         pdf.text(("SALTA,"), 402, 85);
-        pdf.text("enero de 2.024", 483, 85);
+        pdf.text("enero de 2.025", 483, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 446, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -613,7 +613,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="2") {  //listo
         pdf.text(("SALTA,"), 393, 85);
-        pdf.text("febrero de 2.024", 474, 85);
+        pdf.text("febrero de 2.025", 474, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 437, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -621,7 +621,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="3") { //listo 
         pdf.text(("SALTA,"), 401, 85);
-        pdf.text("marzo de 2.024", 482, 85);
+        pdf.text("marzo de 2.025", 482, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 445, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -629,7 +629,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="4") {  //listo
         pdf.text(("SALTA,"), 407, 85);
-        pdf.text("abril de 2.024", 488, 85);
+        pdf.text("abril de 2.025", 488, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 451, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -637,7 +637,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="5") {  //listo
         pdf.text(("SALTA,"), 404, 85);
-        pdf.text("mayo de 2.024", 485, 85);
+        pdf.text("mayo de 2.025", 485, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 448, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -645,7 +645,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="6") {  //listo
         pdf.text(("SALTA,"), 406, 85);
-        pdf.text("junio de 2.024", 487, 85);
+        pdf.text("junio de 2.025", 487, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 450, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -653,7 +653,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="7") {  //listo
         pdf.text(("SALTA,"), 407, 85);
-        pdf.text("julio de 2.024", 488, 85);
+        pdf.text("julio de 2.025", 488, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 451, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -661,7 +661,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="8") {   //listo
         pdf.text(("SALTA,"), 398, 85);
-        pdf.text("agosto de 2.024", 479, 85);
+        pdf.text("agosto de 2.025", 479, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 442, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -669,7 +669,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="9") {  //listo
         pdf.text(("SALTA,"), 376, 85);
-        pdf.text("septiembre de 2.024", 457, 85);
+        pdf.text("septiembre de 2.025", 457, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 420, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -677,7 +677,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="10") {  //listo
         pdf.text(("SALTA,"), 392, 85);
-        pdf.text("octubre de 2.024", 473, 85);
+        pdf.text("octubre de 2.025", 473, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 436, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -685,7 +685,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="11") { //listo
         pdf.text(("SALTA,"), 380, 85);
-        pdf.text("noviembre de 2.024", 461, 85);
+        pdf.text("noviembre de 2.025", 461, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 424, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -693,7 +693,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
         }
     } if ((date.getUTCMonth() + 1).toString()==="12") { //listo
         pdf.text(("SALTA,"), 380, 85);
-        pdf.text("diciembre de 2.024", 461, 85);
+        pdf.text("diciembre de 2.025", 461, 85);
         if (date.getUTCDate().toString() >=1 && date.getUTCDate().toString() <=9) {  
             pdf.text(("0") + date.getUTCDate().toString()+(" de"), 424, 85);
         }if (date.getUTCDate().toString() >=10 && date.getUTCDate().toString() <=31) {
@@ -714,7 +714,7 @@ async function generatePDF(dependencia, numacta, diainiciado, mesiniciado, artic
     pdf.setFont("Arial", "bold");
     pdf.text(("Acta   Contravencional"), 282, 130);
 //dependencia a cargo
-if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
+if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DDP-1)" || dependencia===""){
         pdf.text(("CC"), 425, 130);
     } else {
         pdf.text(("SCA"), 421, 130);
@@ -726,7 +726,7 @@ if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
     } else {
         pdf.text(numacta, 515, 130);
     }
-    pdf.text(("/24" ), 545, 130);
+    pdf.text(("/25" ), 545, 130);
     pdf.setFont("Arial", "normal");
     pdf.setFontSize(12);
 
@@ -865,29 +865,29 @@ if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
 // 2da Oracion .............................................................
 //mes iniciado  
     if (mesconsulta==="01" || mesconsulta==="1") {  
-        pdf.text("del  mes  de   enero   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   enero   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="02" || mesconsulta==="2") {  
-        pdf.text("del  mes  de   febrero  del  año  2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   febrero  del  año  2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="03" || mesconsulta==="3") {  
-        pdf.text("del  mes  de   marzo   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   marzo   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="04" || mesconsulta==="4") {  
-        pdf.text("del  mes  de   abril   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   abril   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="05" || mesconsulta==="5") {  
-        pdf.text("del  mes  de   mayo   del  año   2.024,  siendo  horas  " + hs + ",  se  deja   debidamente", 86, 141);
+        pdf.text("del  mes  de   mayo   del  año   2.025,  siendo  horas  " + hs + ",  se  deja   debidamente", 86, 141);
     } if (mesconsulta==="06" || mesconsulta==="6") {  
-        pdf.text("del  mes  de   junio   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   junio   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="07" || mesconsulta==="7") {  
-        pdf.text("del  mes  de   julio   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   julio   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="08" || mesconsulta==="8") {  
-        pdf.text("del  mes  de   agosto  del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de   agosto  del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="09" || mesconsulta==="9") {  
-        pdf.text("del  mes  de  septiembre  del  año  2.024, siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de  septiembre  del  año  2.025, siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
     } if (mesconsulta==="10") {  
-        pdf.text("del  mes  de  octubre   del  año  2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de  octubre   del  año  2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 141);
     } if (mesconsulta==="11") { 
-        pdf.text("del  mes  de  noviembre  del  año  2.024,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de  noviembre  del  año  2.025,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
     } if (mesconsulta==="12") { 
-        pdf.text("del  mes  de  diciembre  del  año  2.024,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
+        pdf.text("del  mes  de  diciembre  del  año  2.025,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 141);
     }
     
 // 3ra Oracion .............................................................
@@ -1153,29 +1153,29 @@ if (dependencia==="   CRIA Nº 4 – VILLA MITRE (DUR-1)" || dependencia===""){
 // 2da Oracion .............................................................
 //mes iniciado 
     if (mesconsulta==="01" || mesconsulta==="1") {  
-        pdf.text("del  mes  de   enero   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   enero   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="02" || mesconsulta==="2") {  
-        pdf.text("del  mes  de   febrero  del  año  2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   febrero  del  año  2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="03" || mesconsulta==="3") {  
-        pdf.text("del  mes  de   marzo   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   marzo   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="04" || mesconsulta==="4") {  
-        pdf.text("del  mes  de   abril   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   abril   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="05" || mesconsulta==="5") {  
-        pdf.text("del  mes  de   mayo   del  año   2.024,  siendo  horas  " + hs + ",  se  deja   debidamente", 86, 481);
+        pdf.text("del  mes  de   mayo   del  año   2.025,  siendo  horas  " + hs + ",  se  deja   debidamente", 86, 481);
     } if (mesconsulta==="06" || mesconsulta==="6") {  
-        pdf.text("del  mes  de   junio   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   junio   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="07" || mesconsulta==="7") {  
-        pdf.text("del  mes  de   julio   del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   julio   del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="08" || mesconsulta==="8") {  
-        pdf.text("del  mes  de   agosto  del  año   2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de   agosto  del  año   2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="09" || mesconsulta==="9") {  
-        pdf.text("del  mes  de  septiembre  del  año  2.024, siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de  septiembre  del  año  2.025, siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
     } if (mesconsulta==="10") {  
-        pdf.text("del  mes  de  octubre   del  año  2.024,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de  octubre   del  año  2.025,  siendo  horas  " + hs + ",  se  deja  debidamente", 86, 481);
     } if (mesconsulta==="11") { 
-        pdf.text("del  mes  de  noviembre  del  año  2.024,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de  noviembre  del  año  2.025,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
     } if (mesconsulta==="12") { 
-        pdf.text("del  mes  de  diciembre  del  año  2.024,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
+        pdf.text("del  mes  de  diciembre  del  año  2.025,  siendo  horas  " + hs + ", se  deja  debidamente", 86, 481);
     }
       
 // 3ra Oracion .............................................................
